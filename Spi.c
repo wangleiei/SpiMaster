@@ -1,9 +1,18 @@
 #include "Spi.h"
 
-void spi_init(spi_hardware_init*base,VOID_FPTR enable_l,VOID_FPTR enable_h,VOID_FPTR sclk_l,VOID_FPTR sclk_h,VOID_FPTR mosi_l,VOID_FPTR mosi_h,U8_FPTR get_miso,FPTR_U8 delayus,uint8_t delayuscount)
+void spi_init(spi_hardware_init*base,
+	// VOID_FPTR enable_l,
+	// VOID_FPTR enable_h,
+	VOID_FPTR sclk_l,
+	VOID_FPTR sclk_h,
+	VOID_FPTR mosi_l,
+	VOID_FPTR mosi_h,
+	U8_FPTR get_miso,
+	FPTR_U8 delayus,
+	uint8_t delayuscount)
 {
-	base->enable_l = enable_l;//spi片选引脚
-	base->enable_h = enable_h;//spi片选引脚
+	// base->enable_l = enable_l;//spi片选引脚
+	// base->enable_h = enable_h;//spi片选引脚
 	base->sclk_l = sclk_l;//spi时钟引脚
 	base->sclk_h = sclk_h;//spi时钟引脚
 	base->mosi_l = mosi_l;//
@@ -20,7 +29,7 @@ uint8_t spi_write_read(spi_hardware_init*base,uint8_t data)
 	if(0 == base->flag_busy){
 		base->flag_busy = 1;
 
-		base->enable_h(); 
+		// base->enable_h(); 
 		
 		base->sclk_l();      
 		
@@ -47,7 +56,7 @@ uint8_t spi_write_read(spi_hardware_init*base,uint8_t data)
 		}	
 		base->sclk_l();
 		
-		base->enable_l();
+		// base->enable_l();
 
 		base->flag_busy = 0;
 	}       

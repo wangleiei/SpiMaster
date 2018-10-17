@@ -21,13 +21,7 @@ typedef struct spi_hardware_init
 	uint8_t flag_busy;
 }spi_hardware_init;
 
-// static void enable_l(void);
-// static void enable_h(void);
-// static void sclk_l(void);
-// static void sclk_h(void);
-// static void mosi_l(void);
-// static void mosi_h(void);
-// static uint8_t get_miso(void);
+
 
 void spi_write_byte(spi_hardware_init *base,
 	uint8_t  b);
@@ -41,8 +35,8 @@ void spi_read(spi_hardware_init *base,
 uint8_t spi_write_read(spi_hardware_init *base,
 	uint8_t data);
 void spi_init(spi_hardware_init*base,
-	VOID_FPTR enable_l,
-	VOID_FPTR enable_h,
+	// VOID_FPTR enable_l,
+	// VOID_FPTR enable_h,
 	VOID_FPTR sclk_l,
 	VOID_FPTR sclk_h,
 	VOID_FPTR mosi_l,
